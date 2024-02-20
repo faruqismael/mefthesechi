@@ -18,7 +18,8 @@ jobs:
         python -m pip install pyftpsync==4.0.0a3
     - name: where am I
       run: ls ./
-    - uses: lujiaying/FTP-Deploy-Action-Py3.9@main
+    - name: Sync Files 
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
       with:
         host: ${{ secrets.ftp_host }}
         user: ${{ secrets.ftp_username }}
