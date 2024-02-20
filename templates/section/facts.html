@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Impact</h2>
+        </div>
+        <div class="row">
+            {% for fact in facts %}
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="fact-item text-center">
+                    <i class="fa {{ fact.icon_class }} fa-3x text-primary mb-4"></i>
+                    <h4 class="fact-title">{{ fact.title }}</h4>
+                    {% if fact.number %}
+                    <p class="facts-plus">{{ fact.number }}</p>
+                    {% endif %}
+                    {% if fact.description %}
+                    <p>{{ fact.description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<style>
+    .fact-item .facts-plus {
+        font-size: 2em;
+        font-weight: bold;
+        color: #007bff; /* Primary color */
+    }
+    .fact-title {
+        font-size: 1.25em;
+        margin-bottom: 15px;
+    }
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 0.75em;
+    }
+</style>

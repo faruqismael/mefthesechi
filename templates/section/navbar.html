@@ -1,0 +1,34 @@
+{% load static %}
+
+<!-- Navbar Start -->
+<div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <!-- Dynamic Logo Image -->
+                {% if settings.logo %}
+                <img src="{{ settings.logo.url }}" alt="{{ settings.site_name }} Logo" style="height: 50px;">
+                {% endif %}
+                <!-- Company Name Text -->
+                <div style="line-height: 1; margin-left: 10px;">
+                    <h1 class="text-primary" style="margin-bottom: 0; font-size: 1.25rem;">{{ settings.site_name|slice:":6" }}</h1>
+                    <h2 class="text-dark" style="font-size: 1.25rem;">{{ settings.site_name|slice:"6:" }}</h2>
+                </div>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <!-- Dynamically populated navbar links -->
+                    <a href="/" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    <a href="/about" class="nav-item nav-link {% if request.path == '/about' %}active{% endif %}">About</a>
+                    <a href="/service" class="nav-item nav-link {% if request.path == '/service' %}active{% endif %}">Services</a>
+                    <a href="/apply" class="nav-item nav-link {% if request.path == '/apply' %}active{% endif %}">Apply</a>
+                    <a href="/contact" class="nav-item nav-link {% if request.path == '/contact' %}active{% endif %}">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->

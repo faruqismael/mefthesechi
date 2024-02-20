@@ -1,0 +1,24 @@
+<div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <p><i class="fa fa-envelope mr-2"></i><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></p>
+                    <p class="text-body px-3">|</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i><a href="tel:{{ settings.phone_number }}">{{ settings.phone_number }}</a></p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <!-- Ensure your WebsiteSetting model has fields like facebook_url, twitter_url, etc. -->
+                    {% if settings.facebook_url %}
+                    <a href="{{ settings.facebook_url }}" class="text-primary px-3" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    {% endif %}
+                    <!-- Repeat for other social media fields as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

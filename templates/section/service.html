@@ -1,0 +1,25 @@
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Services</h6>
+            <h1>Specialized Foreign Employment Services</h1>
+        </div>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                    <i class="fa fa-2x {{ service.icon_class }} mx-auto mb-4"></i>
+                    <h5 class="mb-2">{{ service.title }}</h5>
+                    <p class="m-0">{{ service.description }}
+                        <ul class="text-left">
+                            {% for feature in service.features.all %}
+                            <li>{{ feature.text }}</li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

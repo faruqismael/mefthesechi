@@ -1,0 +1,78 @@
+{% load static %}
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+    <div class="row pt-5">
+        <div class="col-lg-4 col-md-6 mb-5">
+            <a href="" class="navbar-brand">
+                <h1 class="text-primary"><span class="text-white">MEFTHE</span>SECHI</h1>
+            </a>
+            <p>{{ settings.about_us_text }}</p>
+            <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
+            <div class="d-flex justify-content-start">
+                <!-- Update these links to point to your agency's social media pages -->
+                {% if settings.twitter_url %}
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                {% endif %}
+                {% if settings.facebook_url %}
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                {% endif %}
+                {% if settings.linkedin_url %}
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                {% endif %}
+                {% if settings.instagram_url %}
+                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
+            <div class="d-flex flex-column justify-content-start">
+                <!-- Update these href attributes to point to the corresponding sections/pages of your website -->
+                <a class="text-white-50 mb-2" href="/about"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                <a class="text-white-50 mb-2" href="/service"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                <a class="text-white-50 mb-2" href="/contact"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                <a class="text-white-50 mb-2" href="/apply"><i class="fa fa-angle-right mr-2"></i>Apply Now</a>
+                <a class="text-white-50 mb-2" href="/admin"><i class="fa fa-angle-right mr-2"></i>Login</a>
+            </div>
+        </div>
+        <!-- <div class="col-lg-4 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Useful Links</h5>
+            <div class="d-flex flex-column justify-content-start">
+                <a class="text-white-50 mb-2" href="#vacancies"><i class="fa fa-angle-right mr-2"></i>Vacancies</a>
+                <a class="text-white-50 mb-2" href="#apply"><i class="fa fa-angle-right mr-2"></i>Apply for a Job</a>
+                <a class="text-white-50" href="#faq"><i class="fa fa-angle-right mr-2"></i>FAQ</a>
+            </div>
+        </div> -->
+        <div class="col-lg-4 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
+            <!-- Update with your agency's actual contact information -->
+            <p><i class="fa fa-map-marker-alt mr-2"></i>{{ settings.address }}</p>
+            <p><i class="fa fa-phone-alt mr-2"></i>{{ settings.phone_number }}</p>
+            <p><i class="fa fa-envelope mr-2"></i>{{ settings.email }}</p>
+            <!-- <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6> -->
+            <!-- <div class="w-100">
+                <div class="input-group">
+                    <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary px-3">Sign Up</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="row">
+        <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+            <!-- Update copyright and domain name with actual information -->
+            <p class="m-0 text-white-50">{{ settings.copyright_text }}</p>
+        </div>
+        <div class="col-lg-6 text-center text-md-right">
+            <!-- Keep or update the design credit as per your agreement or preference -->
+            <p class="m-0 text-white-50">Developed by <a href="https://meritechnologies.com" target="_blank" >MERI TECHNOLOGIES</a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
