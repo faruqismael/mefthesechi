@@ -1,5 +1,15 @@
 from django.contrib import admin
 from . import models
+from django.utils.translation import gettext_lazy as _
+
+# This changes the site header
+admin.site.site_header = _("Mefthesechi Agency Admin")
+
+# This changes the site title
+admin.site.site_title = _("Mefthesechi Agency Admin Interface")
+
+# Optional: Change the index title
+admin.site.index_title = _("Welcome to Mefthesechi Agency Admin")
 
 
 class GalleryImageAdmin(admin.ModelAdmin):
