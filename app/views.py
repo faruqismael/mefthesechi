@@ -14,6 +14,10 @@ def service(request):
     return render(request, "service.html")
 
 
+def gallery(request):
+    return render(request, "gallery.html")
+
+
 def contact(request):
     return render(request, "contact.html")
 
@@ -23,7 +27,11 @@ def apply(request):
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("apply")  # Redirect to a 'thank you' page
+            return redirect("success")  # Redirect to a 'thank you' page
     else:
         form = JobApplicationForm()
     return render(request, "apply.html", {"form": form})
+
+
+def success(request):
+    return render(request, "success.html")

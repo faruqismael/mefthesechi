@@ -11,6 +11,7 @@ def local(request):
     carousel_slides = models.CarouselSlide.objects.filter(is_active=True)
     destinations = models.Destination.objects.all()
     services = models.Service.objects.prefetch_related("features").all()
+    galleries = models.GalleryImage.objects.all()
     facts = models.Fact.objects.all()
 
     return {
@@ -19,5 +20,6 @@ def local(request):
         "carousel_slides": carousel_slides,
         "destinations": destinations,
         "services": services,
+        "galleries": galleries,
         "facts": facts,
     }

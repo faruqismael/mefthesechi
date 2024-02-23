@@ -1,0 +1,99 @@
+.body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #000; */
+    padding-top: 20px;
+  }
+  
+  .gcarousel {
+    width: 100%;
+    cursor: grab;
+  }
+  
+  .gcarousel.dragging {
+    cursor: grabbing;
+  }
+  
+  .gcarousel--wrap {
+    white-space: nowrap;
+  }
+  
+  .gcarousel--item {
+      display: inline-block;
+      width: 50vw; 
+      padding: 0.5vw; /* Reduced padding to decrease gap */
+      user-select: none;
+  }
+
+.gcarousel--item figure {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 0;
+    padding-bottom: 100%; /* Adjust if needed to match the aspect ratio of your images */
+    overflow: hidden;
+}
+
+.gcarousel--item figure img {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    vertical-align: middle;
+    transform-origin: center;
+}
+
+  
+.gcarousel--item h2 {
+  position: absolute;
+  z-index: 1;
+  bottom: 5vw;
+  font-size: 2vw;
+  /* bottom: 1vw; */
+  color: #000;
+}
+  
+  .gcarousel--progress {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    bottom: 2vw;
+    width: 20vw;
+    left: 3vw;
+    height: 1px;
+    background: rgba(255, 255, 255, .2);
+  }
+  
+  .gcarousel--progress-bar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .8);
+    transform: scaleX(0);
+    transform-origin: 0% 0%;
+  }
+  
+  @font-face {
+      font-family: 'Orelo-sw-bi';
+      src: url('font.woff') format('truetype'); /* Placeholder URL */
+      font-weight: inherit;
+      font-style: inherit;
+  }
+
+  @media only screen and (max-width: 600px) {
+  .gcarousel--item {
+    width: 80vw; /* Adjust width for smaller screens */
+  }
+  .gcarousel--item h2 {
+    font-size: 5vw; /* Adjust font size for readability on small screens */
+    bottom: 3vw;
+  }
+}
+
+  

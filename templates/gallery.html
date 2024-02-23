@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    
+    {% include 'section/header.html' with title="Our Gallery"   %}
+
+    <div class="body">
+        <div class="gcarousel">
+            <h4 class="text-center p-4">
+                Explore the vibrant gallery of Mefthe Sechi, where every photo tells a story of success, teamwork, and the global journey of our candidates. From training sessions to international placements, witness the milestones and celebrations that define our commitment to connecting talent with opportunity.</h4>
+            <div class="gcarousel--wrap">
+              {% for gallery in galleries %}
+    
+              <div class="gcarousel--item">
+                <figure>
+                  <img src="{{ gallery.image.url }}" alt="{{ gallery.title }}" />
+                  <h2>{{ gallery.title }}</h2>
+                </figure>
+              </div>
+
+              {% endfor %}
+          
+            </div>
+            <div class="gcarousel--progress">
+              <div class="gcarousel--progress-bar"></div>
+            </div>
+          </div>
+    
+    </div>    
+
+{% endblock %}

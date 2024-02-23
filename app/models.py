@@ -146,14 +146,56 @@ class Profession(models.Model):
 
 
 class JobApplication(models.Model):
+    SEX_CHOICES = [
+        ("male", "Male"),
+        ("female", "Female"),
+        ("other", "Other"),
+    ]
+
+    REGION_CHOICES = [
+        ("addis_ababa", "Addis Ababa"),
+        ("oromia", "Oromia"),
+        # Add more regions as needed.
+    ]
+
+    DESIRED_COUNTRY_CHOICES = [
+        ("jordan", "Jordan"),
+        ("saudi_arabia", "Saudi Arabia"),
+        ("dubai", "Dubai"),
+        ("qatar", "Qatar"),
+    ]
+
     full_name = models.CharField(max_length=255)
-    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
-    email = models.EmailField()
-    documents = models.FileField(upload_to="documents/")
-    coc = models.FileField(upload_to="cocs/", verbose_name="Certificate of Competency")
-    photos = models.ImageField(
-        upload_to="photos/", blank=True, null=True
-    )  # Assuming only one photo for simplicity
+    passport = models.FileField(blank=True, upload_to="passports/")
+    sex = models.CharField(blank=True, max_length=6, choices=SEX_CHOICES)
+    region = models.CharField(
+        default="Addis Ababa", max_length=50, choices=REGION_CHOICES
+    )
+    phone_number = models.CharField(blank=True, max_length=20)
+    desired_country = models.CharField(
+        blank=True, max_length=50, choices=DESIRED_COUNTRY_CHOICES
+    )
 
     def __str__(self):
-        return f"{self.full_name} - {self.profession.name}"
+        return f"{self.full_name} - {self.desired_country}"
+
+
+class GalleryImage(models.Model):
+    title = models.CharField(max_length=255, help_text="Title of the image")
+    description = models.TextField(
+        blank=True, help_text="A brief description of the image"
+    )
+    image = models.ImageField(
+        upload_to="gallery_images/", help_text="Upload the gallery image here"
+    )
+    date_added = models.DateTimeField(
+        auto_now_add=True, help_text="The date and time this image was added"
+    )
+
+    class Meta:
+        verbose_name = "Gallery Image"
+        verbose_name_plural = "Gallery Images"
+        ordering = ["-date_added"]
+
+    def __str__(self):
+        return self.title

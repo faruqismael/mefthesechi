@@ -2,6 +2,12 @@ from django.contrib import admin
 from . import models
 
 
+class GalleryImageAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_added")
+    list_filter = ("date_added",)
+    search_fields = ("title", "description")
+
+
 @admin.register(models.WebsiteSetting)
 class WebsiteSettingAdmin(admin.ModelAdmin):
     list_display = ["site_name", "email", "phone_number"]
@@ -38,3 +44,4 @@ admin.site.register(models.About)
 admin.site.register(models.AboutImage)
 admin.site.register(models.Profession)
 admin.site.register(models.JobApplication)
+admin.site.register(models.GalleryImage, GalleryImageAdmin)
