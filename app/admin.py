@@ -1,6 +1,8 @@
 from django.contrib import admin
 from . import models
 from django.utils.translation import gettext_lazy as _
+from ckeditor.widgets import CKEditorWidget
+from django import forms
 
 # This changes the site header
 admin.site.site_header = _("Mefthesechi Agency Admin")
@@ -10,6 +12,17 @@ admin.site.site_title = _("Mefthesechi Agency Admin Interface")
 
 # Optional: Change the index title
 admin.site.index_title = _("Welcome to Mefthesechi Agency Admin")
+
+
+class VacancyAdminForm(forms.ModelForm):
+    class Meta:
+        model = models.Vacancy
+        widgets = {"description": CKEditorWidget()}
+        fields = "__all__"
+
+
+class VacancyAdmin(admin.ModelAdmin):
+    form = VacancyAdminForm
 
 
 class GalleryImageAdmin(admin.ModelAdmin):
@@ -55,3 +68,4 @@ admin.site.register(models.AboutImage)
 admin.site.register(models.Profession)
 admin.site.register(models.JobApplication)
 admin.site.register(models.GalleryImage, GalleryImageAdmin)
+admin.site.register(models.Vacancy, VacancyAdmin)

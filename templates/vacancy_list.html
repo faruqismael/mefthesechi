@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<style>
+    .vacancy-list {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .vacancy {
+        border: 1px solid #ccc;        
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .description {
+        margin-top: 10px;
+    }        
+</style>
+
+<div class="vacancy-list">
+    {% if vacancies %}
+        <h1>Current Openings</h1>
+        {% for vacancy in vacancies %}
+            <div class="vacancy">
+                <h4>{{ vacancy.title }}</h4>
+                <div class="description">{{ vacancy.description|safe }}</div>
+                <p>Posted on: {{ vacancy.posted_on }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="no-vacancies">
+            <h4>No Active Vacancies</h4>
+            <p>Currently, there are no active vacancies. Please check back later.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

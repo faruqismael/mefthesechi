@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import JobApplicationForm
+from .models import Vacancy
 
 
 def home(request):
@@ -20,6 +21,11 @@ def gallery(request):
 
 def contact(request):
     return render(request, "contact.html")
+
+
+def vacancy_list(request):
+    vacancies = Vacancy.objects.all().order_by("-posted_on")
+    return render(request, "vacancy_list.html", {"vacancies": vacancies})
 
 
 def apply(request):
