@@ -157,7 +157,6 @@ class JobApplication(models.Model):
     SEX_CHOICES = [
         ("male", "Male"),
         ("female", "Female"),
-        ("other", "Other"),
     ]
 
     REGION_CHOICES = [
