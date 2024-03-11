@@ -163,6 +163,11 @@ class JobApplication(models.Model):
     REGION_CHOICES = [
         ("addis_ababa", "Addis Ababa"),
         ("oromia", "Oromia"),
+        ("amhara", "Amhara"),
+        ("tigray", "Tigray"),
+        ("south", "South"),
+        ("somali", "Somali"),
+        ("afar", "Afar"),
         # Add more regions as needed.
     ]
 
