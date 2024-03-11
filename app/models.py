@@ -168,6 +168,9 @@ class JobApplication(models.Model):
         ("south", "South"),
         ("somali", "Somali"),
         ("afar", "Afar"),
+        ("benishangul", "Benishangul Gumuz"),
+        ("gambella", "Gambella"),
+        ("harar", "Harar"),
         # Add more regions as needed.
     ]
 
