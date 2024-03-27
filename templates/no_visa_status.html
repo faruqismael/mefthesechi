@@ -1,0 +1,11 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>No Visa Status Found</h1>
+    <p>{{ message }}</p>
+    <p>
+        <a href="/check_visa_status">Try Again</a> with another ID.
+    </p>
+</div>
+{% endblock %}

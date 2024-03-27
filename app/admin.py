@@ -47,6 +47,16 @@ class DestinationAdmin(admin.ModelAdmin):
     list_display = ("name", "link")
 
 
+@admin.register(models.VisaStatus)
+class VisaStatusAdmin(admin.ModelAdmin):
+    list_display = ("job_application", "status")
+    list_filter = ("status",)
+    search_fields = (
+        "job_application__full_name",
+        "job_application__phone_number",
+    )  # Adjust based on your model fields
+
+
 class ServiceFeatureInline(admin.TabularInline):
     model = models.ServiceFeature
     extra = 1

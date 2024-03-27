@@ -1,5 +1,5 @@
 from django import forms
-from .models import JobApplication, Destination
+from .models import JobApplication, Destination, VisaStatus
 
 
 class JobApplicationForm(forms.ModelForm):
@@ -34,3 +34,24 @@ class JobApplicationForm(forms.ModelForm):
                 }
             ),
         }
+
+
+class ContactForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={"placeholder": "Your e-mail"})
+    )
+    subject = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Subject"}))
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={"placeholder": "Your message"})
+    )
+
+
+class VisaStatusCheckForm(forms.Form):
+    id_number = forms.CharField(max_length=255, label="ID Number")
+    # def clean_id_number(self):
+    #     id_number = self.cleaned_data.get("id_number")
+    #     try:
+    #         visa_status = VisaStatus.objects.get(id_number=id_number)
+    #     except VisaStatus.DoesNotExist:
+    #         raise forms.ValidationError("Invalid ID number.")
+    #     return visa_status

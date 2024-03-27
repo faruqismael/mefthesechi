@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Visa Status Result</h1>
+    <p>Status: <b style="color:
+        {% if visa_status.status == 'approved' %}
+            green;
+        {% elif visa_status.status == 'rejected' %}
+            red;
+        {% else %}
+            black; /* Default color for pending status */
+        {% endif %}
+        ">{{ visa_status.status }}</b>
+    </p>
+</div>
+{% endblock %}

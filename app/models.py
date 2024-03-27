@@ -214,3 +214,17 @@ class GalleryImage(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class VisaStatus(models.Model):
+    id_number = models.CharField(max_length=30)
+    job_application = models.OneToOneField(JobApplication, on_delete=models.CASCADE)
+    status_choices = [
+        ("pending", "Pending"),
+        ("approved", "Approved"),
+        ("rejected", "Rejected"),
+    ]
+    status = models.CharField(max_length=10, choices=status_choices, default="pending")
+
+    def __str__(self):
+        return f"{self.id_number} - {self.job_application.full_name} - {self.status}"

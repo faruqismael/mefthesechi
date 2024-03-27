@@ -23,17 +23,16 @@
                         <h1 class="text-white m-0">Check Visa Status</h1>
                     </div>
                     <div class="card-body rounded-bottom bg-white p-5">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Enter your ID no." aria-label="ID number" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Enter Visa no." aria-label="Visa number" required="required" />
-                            </div>
+                        
+                        <!-- Render the visa_status_form -->
+                        <form method="post" action="{% url 'check_visa_status' %}">
+                            {% csrf_token %}
+                            {{ visa_status_form.as_p }}
                             <div>
                                 <button class="btn btn-primary btn-block py-3" type="submit">Check Now</button>
                             </div>
                         </form>
+                        
                         
                     </div>
                 </div>
