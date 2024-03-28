@@ -61,6 +61,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
 ROOT_URLCONF = "mefthesechi.urls"
 
 TEMPLATES = [
@@ -136,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = "/uploads/"  # Make sure it matches your URL configuration
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-
+CSRF_COOKIE_DOMAIN = None
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
