@@ -28,6 +28,7 @@ SECRET_KEY = "django-insecure-_@cg5&3^3+n(q+oj0l5p^ryu26w@4j0t18qxb=lk%x#k117eco
 #     "www.mefthesechi.meritechnologies.com",
 #     "localhost",
 # ]
+CSRF_TRUSTED_ORIGINS = ["https://*.mefthesechi.meritechnologies.com"]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
