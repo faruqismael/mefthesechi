@@ -23,6 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-_@cg5&3^3+n(q+oj0l5p^ryu26w@4j0t18qxb=lk%x#k117eco"
 
+# CSRF_TRUSTED_ORIGINS = [
+#     "mefthesechi.meritechnologies.com",
+#     "www.mefthesechi.meritechnologies.com",
+#     "localhost",
+# ]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 EMAIL_HOST = "smtp.gmail.com"
@@ -137,11 +143,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = "/uploads/"  # Make sure it matches your URL configuration
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "mefthesechi.meritechnologies.com",
-#     "www.mefthesechi.meritechnologies.com",
-#     "localhost",
-# ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
