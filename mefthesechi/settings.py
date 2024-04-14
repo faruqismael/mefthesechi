@@ -28,14 +28,15 @@ SECRET_KEY = "django-insecure-_@cg5&3^3+n(q+oj0l5p^ryu26w@4j0t18qxb=lk%x#k117eco
 #     "www.mefthesechi.meritechnologies.com",
 #     "localhost",
 # ]
-CSRF_TRUSTED_ORIGINS = ["https://*.mefthesechi.meritechnologies.com"]
+# CSRF_TRUSTED_ORIGINS = ["https://*.mefthesechi.meritechnologies.com"]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "thisisfaru@gmail.com"
-# EMAIL_HOST_USER = "meftheagency@gmail.com"
-EMAIL_HOST_PASSWORD = "prou ypcy fpvr yjbf"
+# EMAIL_HOST_USER = "thisisfaru@gmail.com"
+# EMAIL_HOST_PASSWORD = "prou ypcy fpvr yjbf"
+EMAIL_HOST_USER = "meftheagency@gmail.com"
+EMAIL_HOST_PASSWORD = "tdbw bokl kcrp uwqc"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
