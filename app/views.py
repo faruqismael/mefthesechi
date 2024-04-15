@@ -4,6 +4,7 @@ from .models import Vacancy, VisaStatus
 from .forms import VisaStatusCheckForm, ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib import messages
 
 from django.views.generic import TemplateView, FormView
 
@@ -58,22 +59,35 @@ def gallery(request):
 
 def contact(request):
     if request.method == "POST":
-        name = request.POST["name"]
-        subject = request.POST["subject"]
-        message = request.POST["message"]
-        email_from = request.POST["email"]
-        recipient_list = [settings.EMAIL_HOST_USER]
-        send_mail(
-            subject + " - " + name,
-            message,
-            email_from,
-            recipient_list,
-            fail_silently=False,
-        )
-        # Add success message or redirect here
-        redirect("success")
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = request.POST["name"]
+            subject = request.POST["subject"]
+            message = request.POST["message"]
+            email_from = request.POST["email"]
+            recipient_list = [settings.EMAIL_HOST_USER]
 
-    return render(request, "contact.html")
+            try:
+                send_mail(
+                    subject + " - " + name,
+                    message,
+                    email_from,
+                    recipient_list,
+                    fail_silently=False,
+                )
+                messages.success(request, "Your message has been sent successfully!")
+                return redirect("emailsuccess")  # Redirect to the 'success' URL
+            except Exception as e:
+                messages.error(request, f"Sorry, Can you please try later")
+        else:
+            messages.error(
+                request, "There was an error in your form. Please check your input."
+            )
+
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {"form": form})
 
 
 def vacancy_list(request):
@@ -113,3 +127,11 @@ def check_visa_status(request):
         form = VisaStatusCheckForm()
 
     return render(request, "check_visa_status.html", {"form": form})
+
+
+def emailsuccess(request):
+    return render(
+        request,
+        "emailsuccess.html",
+        {"message": "Thank you for your message. We will get back to you shortly."},
+    )

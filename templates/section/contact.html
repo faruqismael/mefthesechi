@@ -1,4 +1,15 @@
-<!-- Contact Start -->
+<!-- Add this in your contact.html or base.html inside the <body> tag -->
+    {% if messages %}
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="text-center mb-3 pb-3">
@@ -55,3 +66,4 @@
         <!-- Google Map Embed End -->
 </div>
 <!-- Contact End -->
+
