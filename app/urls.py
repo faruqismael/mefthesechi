@@ -9,7 +9,7 @@ urlpatterns = [
     path("contact", views.contact, name="contact"),
     path("apply", views.apply, name="apply"),
     path("success", views.success, name="success"),
-    path("emailsuccess  ", views.emailsuccess, name="emailsuccess "),
+    path("emailsuccess", views.emailsuccess, name="emailsuccess"),
     path("vacancy", views.vacancy_list, name="vacancy"),
     path("check_visa_status", views.check_visa_status, name="check_visa_status"),
 ]

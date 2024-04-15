@@ -75,10 +75,15 @@ def contact(request):
                     recipient_list,
                     fail_silently=False,
                 )
+                print(1)
                 messages.success(request, "Your message has been sent successfully!")
+                print(2)
                 return redirect("emailsuccess")  # Redirect to the 'success' URL
+                print(3)
             except Exception as e:
+                print(4)
                 messages.error(request, f"Sorry, Can you please try later")
+                print(5)
         else:
             messages.error(
                 request, "There was an error in your form. Please check your input."
